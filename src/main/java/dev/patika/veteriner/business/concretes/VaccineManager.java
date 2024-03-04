@@ -2,10 +2,8 @@ package dev.patika.veteriner.business.concretes;
 
 import dev.patika.veteriner.business.abstracts.IVaccineService;
 import dev.patika.veteriner.dao.IVaccineRepo;
-import dev.patika.veteriner.dto.request.doctor.DoctorRequest;
 import dev.patika.veteriner.dto.request.vaccine.VaccineRequest;
 import dev.patika.veteriner.dto.request.vaccine.VaccineWithoutCustomerRequest;
-import dev.patika.veteriner.entity.Doctor;
 import dev.patika.veteriner.entity.Vaccine;
 import dev.patika.veteriner.mapper.IVaccineMapper;
 import lombok.RequiredArgsConstructor;
@@ -52,7 +50,7 @@ public class VaccineManager implements IVaccineService {
 ///////////////
     public Vaccine create(VaccineWithoutCustomerRequest vaccineWithoutCustomerRequest){
         Optional<Vaccine> vaccineExist  =
-                this.vaccineRepo.findByNameAndCodeAndAnimalIdAndProtectionFinishDateGreaterThanEqual(vaccineWithoutCustomerRequest.getName(), vaccineWithoutCustomerRequest.getCode(),vaccineWithoutCustomerRequest.getAnimalWithoutCustomerRequest().getId(), vaccineWithoutCustomerRequest.getProtectionStartDate());
+                this.vaccineRepo.findByNameAndCodeAndAnimalIdAndProtectionFinishDateGreaterThanEqual(vaccineWithoutCustomerRequest.getName(), vaccineWithoutCustomerRequest.getCode(),vaccineWithoutCustomerRequest.getAnimal2Request().getId(), vaccineWithoutCustomerRequest.getProtectionStartDate());
 
         if (vaccineExist.isPresent()){
             throw new RuntimeException("The vaccine you want to save is still protective for this animal.");

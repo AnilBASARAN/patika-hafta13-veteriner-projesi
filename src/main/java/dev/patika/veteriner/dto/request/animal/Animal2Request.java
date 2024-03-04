@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AnimalWithoutCustomerRequest {
+public class Animal2Request {
     private Long id;
     private String name;
     private String species;
